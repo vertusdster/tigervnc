@@ -35,7 +35,7 @@ jobs:
           pacman --sync --noconfirm --needed make mingw-w64-x86_64-toolchain mingw-w64-x86_64-cmake
           pacman --sync --noconfirm --needed mingw-w64-x86_64-fltk mingw-w64-x86_64-libjpeg-turbo mingw-w64-x86_64-gnutls mingw-w64-x86_64-pixman
       - name: Configure
-        run: cmake -G "MSYS Makefiles" -DCMAKE_BUILD_TYPE=Debug -S . -B build
+        run: cmake -G "MSYS Makefiles" -DENABLE_H264 -DCMAKE_BUILD_TYPE=Debug -S . -B build
       - name: Build
         working-directory: build
         run: make
@@ -53,7 +53,7 @@ jobs:
         run: |
           brew install fltk pixman ffmpeg
       - name: Configure
-        run: cmake -DCMAKE_BUILD_TYPE=Debug -S . -B build
+        run: cmake -DCMAKE_BUILD_TYPE=Debug -DENABLE_H264 -S . -B build
       - name: Build
         working-directory: build
         run: make
