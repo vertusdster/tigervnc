@@ -21,7 +21,7 @@ jobs:
         run: make dmg
       - name: Pack project # This would actually build your project, using zip for an example artifact
         run: |
-          zip /tmp/*.dmg
+          zip /tmp/TigerVNC*/*.dmg
       - name: Create Release
         id: create_release
         uses: actions/create-release@v1
